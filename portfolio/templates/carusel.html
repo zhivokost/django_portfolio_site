@@ -1,0 +1,28 @@
+{% load static %}
+
+<div id="PhotoSlider" class="carousel slide" data-bs-ride="carousel" style="max-width: 300px; margin: 0 auto;">
+
+  <div class="carousel-indicators">
+    {% for indicator in slider_list %}
+      <li data-target="#PhotoSlider" data-slide-to="{{ forloop.counter0 }}" class="{{ indicator.cms_css }}"></li>
+    {% endfor %}
+  </div>
+
+  <div class="carousel-inner">
+    {% for slide in slider_list %}
+      <div class="carousel-item {{ slide.cms_css }}" data-bs-interval="4000">
+        <img src="{{ slide.cms_img.url }}" class="d-block w-100" alt="{{ slide.cms_title }}">
+      </div>
+    {% endfor %}
+  </div>
+
+<a class="carousel-control-prev" href="#PhotoSlider" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#PhotoSlider" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
+
+</div>
